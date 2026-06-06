@@ -11,7 +11,18 @@ import { createClient } from '@/lib/supabase/client';
 import { EveningCheckIn } from '@/components/EveningCheckIn';
 import { formatDate, getGreeting, getWaterTargetMl, isEvening } from '@/lib/utils';
 import type { Profile } from '@/types';
-import { Utensils, Dumbbell, Sparkles, BarChart3, Brain, Flame, Droplets, Heart } from 'lucide-react';
+import { Utensils, Dumbbell, Sparkles, BarChart3, Brain, Flame, Droplets, Heart, Loader2 } from 'lucide-react';
+import { createBooking } from '@/app/actions/booking-actions';
+import { toast } from 'sonner';
+
+interface AIRecommendation {
+  service_name: string;
+  location: string;
+  recommendation: string;
+  reasoning: string;
+  estimated_cost: string;
+  best_time: string;
+}
 
 export default function DashboardPage() {
   const t = useTranslations('dashboard');
@@ -22,6 +33,9 @@ export default function DashboardPage() {
   const [mood, setMood] = useState<number | null>(null);
   const [showCheckIn, setShowCheckIn] = useState(false);
   const [userId, setUserId] = useState('');
+  const [aiRecommendation, setAiRecommendation] = useState<AIRecommendation | null>(null);
+  const [isBookingLoading, setIsBookingLoading] = useState(false);
+  const [showBookingCard, setShowBookingCard] = useState(false);
 
   useEffect(() => {
     const load = async () => {
@@ -67,6 +81,66 @@ export default function DashboardPage() {
     };
     load();
   }, []);
+
+  const handleGetWellnessRecommendation = async (mode: string) => {
+    if (!profile || !userId) {
+      toast.error('Profile not loaded. Please refresh the page.');
+      return;
+    }
+
+    try {
+      setIsBookingLoading(true);
+      const response = await fetch('/api/analyze', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          mode,
+          userProfile: profile,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to get recommendation');
+      }
+
+      const data = await response.json();
+      setAiRecommendation(data);
+      setShowBookingCard(true);
+      toast.success('Wellness recommendation generated!');
+    } catch (error) {
+      console.error('Error getting recommendation:', error);
+      toast.error('Failed to get wellness recommendation');
+    } finally {
+      setIsBookingLoading(false);
+    }
+  };
+
+  const handleBookService = async () => {
+    if (!aiRecommendation || !userId) {
+      toast.error('Missing booking information');
+      return;
+    }
+
+    try {
+      setIsBookingLoading(true);
+      const result = await createBooking(userId, aiRecommendation.service_name, aiRecommendation.location);
+
+      if (result.success) {
+        toast.success(`✅ Booking sent to ${aiRecommendation.service_name}!`);
+        setShowBookingCard(false);
+        setAiRecommendation(null);
+      } else {
+        toast.error(result.error || 'Failed to create booking');
+      }
+    } catch (error) {
+      console.error('Booking error:', error);
+      toast.error('Failed to book service');
+    } finally {
+      setIsBookingLoading(false);
+    }
+  };
 
   if (!profile) {
     return (
@@ -131,19 +205,84 @@ export default function DashboardPage() {
         />
       </div>
 
+      {/* AI Wellness Recommendation Card */}
+      {showBookingCard && aiRecommendation && (
+        <div className="card mb-4 border-2 border-primary bg-gradient-to-br from-primary/5 to-transparent">
+          <div className="flex items-start justify-between mb-3">
+            <h3 className="text-lg font-bold text-primary">🎯 {t('recommendedService', 'Recommended Service')}</h3>
+            <button
+              onClick={() => setShowBookingCard(false)}
+              className="text-gray-400 hover:text-gray-600 text-xl"
+            >
+              ✕
+            </button>
+          </div>
+
+          <div className="space-y-2 mb-4">
+            <div>
+              <p className="text-sm font-semibold text-gray-600">Service</p>
+              <p className="text-base font-bold">{aiRecommendation.service_name}</p>
+            </div>
+            <div>
+              <p className="text-sm font-semibold text-gray-600">Location</p>
+              <p className="text-base">{aiRecommendation.location}</p>
+            </div>
+            <div>
+              <p className="text-sm font-semibold text-gray-600">Why This?</p>
+              <p className="text-sm text-gray-700">{aiRecommendation.reasoning}</p>
+            </div>
+            <div>
+              <p className="text-sm font-semibold text-gray-600">Estimated Cost</p>
+              <p className="text-base font-semibold text-accent">{aiRecommendation.estimated_cost}</p>
+            </div>
+            <div>
+              <p className="text-sm font-semibold text-gray-600">Best Time</p>
+              <p className="text-sm">{aiRecommendation.best_time}</p>
+            </div>
+          </div>
+
+          <button
+            onClick={handleBookService}
+            disabled={isBookingLoading}
+            className="w-full bg-primary text-white font-semibold py-2 rounded-lg hover:bg-primary-dark transition-all disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+          >
+            {isBookingLoading ? (
+              <>
+                <Loader2 className="w-4 h-4 animate-spin" />
+                {t('booking', 'Booking...')}
+              </>
+            ) : (
+              `📅 ${t('bookRecoverySession', 'Book Recovery Session')}`
+            )}
+          </button>
+        </div>
+      )}
+
       <div className="grid grid-cols-2 gap-3">
-        <Link href="/mode1" className="select-card flex flex-col items-center py-4 gap-2">
+        <button
+          onClick={() => handleGetWellnessRecommendation('mode1')}
+          disabled={isBookingLoading}
+          className="select-card flex flex-col items-center py-4 gap-2 hover:shadow-md transition-shadow disabled:opacity-60"
+        >
           <Utensils className="w-6 h-6 text-primary" />
           <span className="text-sm font-medium">{t('mode1')}</span>
-        </Link>
-        <Link href="/mode2" className="select-card flex flex-col items-center py-4 gap-2">
+        </button>
+        <button
+          onClick={() => handleGetWellnessRecommendation('mode2')}
+          disabled={isBookingLoading}
+          className="select-card flex flex-col items-center py-4 gap-2 hover:shadow-md transition-shadow disabled:opacity-60"
+        >
           <Dumbbell className="w-6 h-6 text-primary" />
           <span className="text-sm font-medium">{t('mode2')}</span>
-        </Link>
-        <Link href="/mode3" className="select-card flex flex-col items-center py-4 gap-2">
+        </button>
+        <button
+          onClick={() => handleGetWellnessRecommendation('mode3')}
+          disabled={isBookingLoading}
+          className="select-card flex flex-col items-center py-4 gap-2 hover:shadow-md transition-shadow disabled:opacity-60"
+        >
           <Sparkles className="w-6 h-6 text-primary" />
           <span className="text-sm font-medium">{t('mode3')}</span>
-        </Link>
+        </button>
         <Link href="/progress" className="select-card flex flex-col items-center py-4 gap-2">
           <BarChart3 className="w-6 h-6 text-primary" />
           <span className="text-sm font-medium">{t('progress')}</span>
