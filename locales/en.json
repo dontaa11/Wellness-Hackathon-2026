@@ -1,0 +1,207 @@
+{
+  "app": {
+    "name": "FitEthio",
+    "tagline": "Your Ethiopian wellness companion"
+  },
+  "nav": {
+    "home": "Home",
+    "food": "Food",
+    "workout": "Workout",
+    "wellness": "Wellness",
+    "progress": "Progress",
+    "community": "Community"
+  },
+  "auth": {
+    "login": "Log in",
+    "signup": "Sign up",
+    "email": "Email",
+    "password": "Password",
+    "google": "Continue with Google",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "logout": "Log out"
+  },
+  "onboarding": {
+    "step": "Step {current} of {total}",
+    "welcome": {
+      "title": "Welcome to FitEthio",
+      "subtitle": "Your personalized Ethiopian wellness journey starts here",
+      "cta": "Let's build your profile"
+    },
+    "basicInfo": {
+      "title": "Basic Info",
+      "name": "Your name",
+      "age": "Age",
+      "gender": "Gender",
+      "male": "Male",
+      "female": "Female",
+      "other": "Other",
+      "weight": "Weight (kg)",
+      "height": "Height (cm)"
+    },
+    "goal": {
+      "title": "What's your goal?",
+      "lose_weight": "Lose weight",
+      "build_muscle": "Build muscle",
+      "stay_fit": "Stay fit",
+      "eat_healthy": "Eat healthy"
+    },
+    "activity": {
+      "title": "Activity level",
+      "sedentary": "Sedentary",
+      "sedentaryDesc": "Little or no exercise",
+      "light": "Light",
+      "lightDesc": "1-3 days/week",
+      "moderate": "Moderate",
+      "moderateDesc": "3-5 days/week",
+      "very_active": "Very active",
+      "very_activeDesc": "6-7 days/week"
+    },
+    "skin": {
+      "title": "Skin type",
+      "oily": "Oily",
+      "dry": "Dry",
+      "combination": "Combination",
+      "normal": "Normal",
+      "sensitive": "Sensitive"
+    },
+    "fasting": {
+      "title": "Fasting mode",
+      "question": "Do you follow Ethiopian Orthodox fasting?",
+      "yes": "Yes",
+      "no": "No",
+      "periods": "Select fasting periods",
+      "tsome": "Tsome (Wed/Fri)",
+      "hudade": "Hudade / Abiy Tsome",
+      "apostolat": "Tsome Apostolat",
+      "fillseta": "Tsome Fillseta"
+    },
+    "analysis": {
+      "title": "Your Body Analysis",
+      "bmi": "BMI",
+      "category": "Category",
+      "calories": "Daily calorie target",
+      "protein": "Protein target",
+      "water": "Water target",
+      "underweight": "Underweight",
+      "normal": "Normal",
+      "overweight": "Overweight",
+      "obese": "Obese",
+      "finish": "Start my journey"
+    },
+    "next": "Next",
+    "back": "Back"
+  },
+  "dashboard": {
+    "greeting": "Good {time}, {name}!",
+    "morning": "morning",
+    "afternoon": "afternoon",
+    "evening": "evening",
+    "checkIn": "What are you eating today?",
+    "caloriesToday": "Calories today",
+    "waterToday": "Water today",
+    "workoutStreak": "Workout streak",
+    "moodToday": "Today's mood",
+    "mode1": "Food → Workout",
+    "mode2": "Workout → Food",
+    "mode3": "Skincare & Wellness",
+    "progress": "Progress",
+    "mind": "Mind",
+    "fastingBanner": "Fasting: {period} — {days} days remaining",
+    "waterTracker": "Water intake",
+    "glasses": "glasses",
+    "addWater": "Add 250ml"
+  },
+  "checkIn": {
+    "title": "Morning Check-in",
+    "mood": "How do you feel today?",
+    "meal": "What's your first meal?",
+    "sleep": "How did you sleep?",
+    "hours": "hours",
+    "submit": "Save check-in"
+  },
+  "evening": {
+    "title": "Time to wind down",
+    "bedtime": "Bedtime goal",
+    "stress": "Stress level",
+    "getTips": "Get sleep tips"
+  },
+  "mode1": {
+    "title": "Food → Workout",
+    "subtitle": "Log your meal, get a personalized workout",
+    "input": "What are you eating today?",
+    "pickFood": "Pick from database",
+    "analyze": "Analyze & Plan Workout",
+    "mealAnalysis": "Meal Analysis",
+    "workoutPlan": "Workout Plan",
+    "bestTime": "Best time",
+    "waterGlasses": "Water glasses",
+    "exercises": "Exercises"
+  },
+  "mode2": {
+    "title": "Workout → Food",
+    "subtitle": "Log your workout, get recovery meals",
+    "input": "Describe your workout",
+    "type": "Workout type",
+    "sets": "Sets",
+    "reps": "Reps",
+    "duration": "Duration (min)",
+    "analyze": "Get Meal Plan",
+    "caloriesBurned": "Calories burned",
+    "recoveryMeals": "Recovery Meals",
+    "avoid": "Foods to avoid"
+  },
+  "mode3": {
+    "title": "Skincare & Wellness",
+    "subtitle": "Personalized for your profile",
+    "girlsMode": "Girls Mode",
+    "skincare": "Skincare",
+    "supplements": "Supplements",
+    "natural": "Natural Options",
+    "morning": "Morning routine",
+    "evening": "Evening routine",
+    "avoid": "Avoid",
+    "regenerate": "Re-run analysis"
+  },
+  "progress": {
+    "title": "Your Progress",
+    "weight": "Weight",
+    "logWeight": "Log weight",
+    "streak": "Workout streak",
+    "currentStreak": "Current streak",
+    "longestStreak": "Longest streak",
+    "caloriesWeek": "Calories this week",
+    "waterWeek": "Water this week",
+    "moodTrend": "Mood trend",
+    "goalProgress": "Goal progress",
+    "weeklyReport": "Weekly Report",
+    "generateReport": "Generate report",
+    "summary": "Summary",
+    "highlight": "What you did well",
+    "improve": "Area to improve",
+    "goals": "Goals for next week"
+  },
+  "mind": {
+    "title": "Mind & Wellness",
+    "breathing": "Breathing Exercise",
+    "breathingDesc": "4-7-8 technique — inhale 4s, hold 7s, exhale 8s",
+    "tips": "Wellness tips"
+  },
+  "community": {
+    "title": "Community Leaderboard",
+    "rank": "You are ranked #{rank} this week",
+    "optIn": "Join leaderboard",
+    "topStreaks": "Top streaks"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "retry": "Retry",
+    "save": "Save",
+    "cancel": "Cancel",
+    "kcal": "kcal",
+    "g": "g",
+    "ml": "ml",
+    "days": "days"
+  }
+}

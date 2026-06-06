@@ -1,0 +1,207 @@
+{
+  "app": {
+    "name": "ፊትኢትዮ",
+    "tagline": "የኢትዮጵያ ዕለታዊ ጤና ጓደኛዎ"
+  },
+  "nav": {
+    "home": "መነሻ",
+    "food": "ምግብ",
+    "workout": "ስፖርት",
+    "wellness": "ጤና",
+    "progress": "ሂደት",
+    "community": "ማህበረሰብ"
+  },
+  "auth": {
+    "login": "ግባ",
+    "signup": "ተመዝገብ",
+    "email": "ኢሜይል",
+    "password": "የይለፍ ቃል",
+    "google": "በጉግል ቀጥል",
+    "noAccount": "መለያ የለዎትም?",
+    "hasAccount": "መለያ አለዎት?",
+    "logout": "ውጣ"
+  },
+  "onboarding": {
+    "step": "ደረጃ {current} ከ {total}",
+    "welcome": {
+      "title": "ወደ ፊትኢትዮ እንኳን በደህና መጡ",
+      "subtitle": "የግል ኢትዮጵያዊ ጤና ጉዞዎ እዚህ ይጀምራል",
+      "cta": "መገለጫዎን እንገንባ"
+    },
+    "basicInfo": {
+      "title": "መሰረታዊ መረጃ",
+      "name": "ስምዎ",
+      "age": "ዕድሜ",
+      "gender": "ጾታ",
+      "male": "ወንድ",
+      "female": "ሴት",
+      "other": "ሌላ",
+      "weight": "ክብደት (ኪ.ግ)",
+      "height": "ቁመት (ሴ.ሜ)"
+    },
+    "goal": {
+      "title": "ግብዎ ምንድን ነው?",
+      "lose_weight": "ክብደት መቀነስ",
+      "build_muscle": "ጡንቻ መገንባት",
+      "stay_fit": "በቅርጽ መቆየት",
+      "eat_healthy": "ጤናማ ምግብ መብላት"
+    },
+    "activity": {
+      "title": "የእንቅስቃሴ ደረጃ",
+      "sedentary": "አነስተኛ",
+      "sedentaryDesc": "ብዙም እንቅስቃሴ የለም",
+      "light": "ቀላል",
+      "lightDesc": "1-3 ቀናት/ሳምንት",
+      "moderate": "መካከለኛ",
+      "moderateDesc": "3-5 ቀናት/ሳምንት",
+      "very_active": "በጣም ንቁ",
+      "very_activeDesc": "6-7 ቀናት/ሳምንት"
+    },
+    "skin": {
+      "title": "የቆዳ ዓይነት",
+      "oily": "ዘይታዊ",
+      "dry": "ደረቅ",
+      "combination": "ድብልቅ",
+      "normal": "መደበኛ",
+      "sensitive": "ስሜታዊ"
+    },
+    "fasting": {
+      "title": "የጾም ሁነታ",
+      "question": "የኢትዮጵያ ኦርቶዶክስ ጾም ይጠብቃሉ?",
+      "yes": "አዎ",
+      "no": "አይ",
+      "periods": "የጾም ጊዜያት ይምረጡ",
+      "tsome": "ጾም (ረቡዕ/አርብ)",
+      "hudade": "ሁዳዴ / አብይ ጾም",
+      "apostolat": "ጾም አፖስቶላት",
+      "fillseta": "ጾም ፍልሰታ"
+    },
+    "analysis": {
+      "title": "የሰውነት ትንተናዎ",
+      "bmi": "ቢኤምአይ",
+      "category": "ምድብ",
+      "calories": "ዕለታዊ ካሎሪ ግብ",
+      "protein": "ፕሮቲን ግብ",
+      "water": "ውሃ ግብ",
+      "underweight": "ከባድ",
+      "normal": "መደበኛ",
+      "overweight": "ከመጠን በላይ",
+      "obese": "ስኑ",
+      "finish": "ጉዞዬን ጀምር"
+    },
+    "next": "ቀጣይ",
+    "back": "ተመለስ"
+  },
+  "dashboard": {
+    "greeting": "እንደምን {time}፣ {name}!",
+    "morning": "አደረሰ",
+    "afternoon": "ከሰዓት",
+    "evening": "ሰዓት",
+    "checkIn": "ዛሬ ምን ትበላላችሁ?",
+    "caloriesToday": "የዛሬ ካሎሪ",
+    "waterToday": "የዛሬ ውሃ",
+    "workoutStreak": "የስፖርት ተከታታይ",
+    "moodToday": "የዛሬ ስሜት",
+    "mode1": "ምግብ → ስፖርት",
+    "mode2": "ስፖርት → ምግብ",
+    "mode3": "ቆዳ እና ጤና",
+    "progress": "ሂደት",
+    "mind": "አእምሮ",
+    "fastingBanner": "ጾም: {period} — {days} ቀናት ቀረ",
+    "waterTracker": "የውሃ መጠባበቅ",
+    "glasses": "ብርጭቆ",
+    "addWater": "250ሚሊ ጨምር"
+  },
+  "checkIn": {
+    "title": "የጠዋት ምልከታ",
+    "mood": "ዛሬ እንዴት ይሰማዎታል?",
+    "meal": "የመጀመሪያ ምግብዎ ምንድን ነው?",
+    "sleep": "እንዴት አድረዋል?",
+    "hours": "ሰዓታት",
+    "submit": "ምልከታ አስቀምጥ"
+  },
+  "evening": {
+    "title": "ለእንቅልፍ ጊዜ ነው",
+    "bedtime": "የእንቅልፍ ጊዜ",
+    "stress": "የጭንቀት ደረጃ",
+    "getTips": "የእንቅልፍ ምክሮች"
+  },
+  "mode1": {
+    "title": "ምግብ → ስፖርት",
+    "subtitle": "ምግብዎን ያስመዝግቡ፣ የግል ስፖርት ያግኙ",
+    "input": "ዛሬ ምን ትበላላችሁ?",
+    "pickFood": "ከመረጃ ጎታ ይምረጡ",
+    "analyze": "ተንትን እና ስፖርት ያቅዱ",
+    "mealAnalysis": "የምግብ ትንተና",
+    "workoutPlan": "የስፖርት ዕቅድ",
+    "bestTime": "ምርጥ ጊዜ",
+    "waterGlasses": "የውሃ ብርጭቆ",
+    "exercises": "የስፖርት ተግባራት"
+  },
+  "mode2": {
+    "title": "ስፖርት → ምግብ",
+    "subtitle": "ስፖርትዎን ያስመዝግቡ፣ የማገገሚያ ምግብ ያግኙ",
+    "input": "ስፖርትዎን ይግለጹ",
+    "type": "የስፖርት ዓይነት",
+    "sets": "ዙሮች",
+    "reps": "ድግግሞች",
+    "duration": "ጊዜ (ደቂቃ)",
+    "analyze": "የምግብ ዕቅድ ያግኙ",
+    "caloriesBurned": "የተቃጠለ ካሎሪ",
+    "recoveryMeals": "የማገገሚያ ምግቦች",
+    "avoid": "ሊታረቁባቸው የሚገቡ ምግቦች"
+  },
+  "mode3": {
+    "title": "ቆዳ እና ጤና",
+    "subtitle": "ለመገለጫዎ የተበጁ",
+    "girlsMode": "የሴቶች ሁነታ",
+    "skincare": "ቆዳ እንክብካቤ",
+    "supplements": "ተጨማሪ ምግቦች",
+    "natural": "ተፈጥሯዊ አማራጮች",
+    "morning": "የጠዋት ስራ",
+    "evening": "የማታ ስራ",
+    "avoid": "ሊታረቁ",
+    "regenerate": "እንደገና ተንትን"
+  },
+  "progress": {
+    "title": "ሂደትዎ",
+    "weight": "ክብደት",
+    "logWeight": "ክብደት መዝግብ",
+    "streak": "የስፖርት ተከታታይ",
+    "currentStreak": "የአሁን ተከታታይ",
+    "longestStreak": "ረጅም ተከታታይ",
+    "caloriesWeek": "የዚህ ሳምንት ካሎሪ",
+    "waterWeek": "የዚህ ሳምንት ውሃ",
+    "moodTrend": "የስሜት አዝማሚያ",
+    "goalProgress": "የግብ ሂደት",
+    "weeklyReport": "የሳምንት ሪፖርት",
+    "generateReport": "ሪፖርት ፍጠር",
+    "summary": "ማጠቃለያ",
+    "highlight": "ደህንነታቸው የተሰሩ",
+    "improve": "ሊሻሻሉ የሚገቡ",
+    "goals": "ለሚቀጥለው ሳምንት ግቦች"
+  },
+  "mind": {
+    "title": "አእምሮ እና ጤና",
+    "breathing": "የመተንፈስ ስልት",
+    "breathingDesc": "4-7-8 ቴክኒክ — 4ሰ ይተንፍሱ፣ 7ሰ ይያዙ፣ 8ሰ ያስወጡ",
+    "tips": "የጤና ምክሮች"
+  },
+  "community": {
+    "title": "የማህበረሰብ ደረጃ",
+    "rank": "በዚህ ሳምንት #{rank} ነዎት",
+    "optIn": "ደረጃ ላይ ተቀላቀል",
+    "topStreaks": "ከፍተኛ ተከታታዮች"
+  },
+  "common": {
+    "loading": "በመጫን ላይ...",
+    "error": "አንድ ነገር ተሳስቷል",
+    "retry": "እንደገና ሞክር",
+    "save": "አስቀምጥ",
+    "cancel": "ሰርዝ",
+    "kcal": "ካሎሪ",
+    "g": "ግራም",
+    "ml": "ሚሊ",
+    "days": "ቀናት"
+  }
+}
