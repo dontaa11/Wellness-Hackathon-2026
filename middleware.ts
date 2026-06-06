@@ -1,5 +1,5 @@
 import createMiddleware from 'next-intl/middleware';
-import { type NextRequest, NextResponse } from 'next/server';
+import { type NextRequest } from 'next/server';
 import { updateSession } from '@/lib/supabase/middleware';
 import { defaultLocale, locales } from './i18n';
 
@@ -10,13 +10,24 @@ const intlMiddleware = createMiddleware({
 });
 
 export async function middleware(request: NextRequest) {
+  const pathname = request.nextUrl.pathname;
+
+  // Skip i18n for specific routes
+  const noIntlPaths = ['/login', '/signup', '/auth', '/api', '/_next'];
+  const skipIntl = noIntlPaths.some(path => pathname.startsWith(path));
+
+  // Always update session first
   const supabaseResponse = await updateSession(request);
   if (supabaseResponse.status === 307 || supabaseResponse.status === 308) {
     return supabaseResponse;
   }
 
-  const intlResponse = intlMiddleware(request);
-  return intlResponse;
+  // Apply i18n middleware for non-excluded routes
+  if (skipIntl) {
+    return supabaseResponse;
+  }
+
+  return intlMiddleware(request);
 }
 
 export const config = {

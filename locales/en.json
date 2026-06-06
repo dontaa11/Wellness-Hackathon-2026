@@ -189,9 +189,20 @@
   },
   "community": {
     "title": "Community Leaderboard",
+    "leaderboard": "Leaderboard",
+    "description": "Compete with the FitEthio community and climb the ranks",
+    "joinLeaderboard": "Join the community",
+    "optInDescription": "Make your streak visible to the community and inspire others",
+    "optIn": "Opt In",
+    "optedIn": "Opted In",
     "rank": "You are ranked #{rank} this week",
-    "optIn": "Join leaderboard",
-    "topStreaks": "Top streaks"
+    "name": "Name",
+    "streak": "Streak",
+    "noEntries": "No one has joined the leaderboard yet. Be the first!",
+    "howItWorks": "How it works",
+    "info1": "Your daily workout streak is tracked automatically",
+    "info2": "Opt-in to make your name and streak public",
+    "info3": "Top performers are featured on the leaderboard each week"
   },
   "common": {
     "loading": "Loading...",
