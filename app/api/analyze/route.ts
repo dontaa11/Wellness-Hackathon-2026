@@ -81,11 +81,14 @@ Recommend a specific Ethiopian spa or wellness center in Ethiopia.`;
       );
     }
 
-    const response = await groq.messages.create({
+    const response = await groq.chat.completions.create({
       model: 'llama-3.3-70b-versatile',
       max_tokens: 1024,
-      system: SYSTEM_PROMPT,
       messages: [
+        {
+          role: 'system',
+          content: SYSTEM_PROMPT,
+        },
         {
           role: 'user',
           content: userMessage,
@@ -93,10 +96,10 @@ Recommend a specific Ethiopian spa or wellness center in Ethiopia.`;
       ],
     });
 
-    const content = response.content[0];
-    if (content.type !== 'text') {
+    const content = response.choices[0]?.message?.content;
+    if (!content) {
       return NextResponse.json(
-        { error: 'Unexpected response type from Groq' },
+        { error: 'No response from Groq' },
         { status: 500 }
       );
     }
@@ -105,13 +108,14 @@ Recommend a specific Ethiopian spa or wellness center in Ethiopia.`;
     let jsonResponse;
     try {
       // Extract JSON from the response text
-      const jsonMatch = content.text.match(/\{[\s\S]*\}/);
+      const jsonMatch = content.match(/\{[\s\S]*\}/);
       if (!jsonMatch) {
         throw new Error('No JSON found in response');
       }
       jsonResponse = JSON.parse(jsonMatch[0]);
     } catch (parseError) {
-      console.error('Failed to parse Groq response:', content.text);
+      console.error('Failed to parse Groq response:', content);
+      // Return a fallback response
       return NextResponse.json(
         {
           service_name: 'Kuriftu Bishoftu',
@@ -129,7 +133,7 @@ Recommend a specific Ethiopian spa or wellness center in Ethiopia.`;
   } catch (error) {
     console.error('Error in analyze API:', error);
     return NextResponse.json(
-      { error: 'Failed to analyze wellness data' },
+      { error: `Failed to analyze wellness data: ${error instanceof Error ? error.message : 'Unknown error'}` },
       { status: 500 }
     );
   }
